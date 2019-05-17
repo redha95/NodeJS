@@ -3,13 +3,17 @@ const User = require("./models/user");
 const express = require("express");
 const MovieRouter = require("./routes/movie");
 const UserRouter = require("./routes/user");
+const SecurityRouter = require("./routes/security");
 const bodyparser = require("body-parser");
+const verifyToken = require('./middlewares/security');
 
 const app = express();
 app.use(bodyparser.json());
 
-app.use('/movies',MovieRouter);
+app.use('/',SecurityRouter);
+app.use(verifyToken);
 app.use('/user',UserRouter);
+app.use('/movies',MovieRouter);
 
 app.listen(3000, () => console.log("Listening"));
 
