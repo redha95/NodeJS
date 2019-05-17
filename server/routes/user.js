@@ -9,19 +9,6 @@ router.get('/', (req,res) => {
     User.find(req.query).then(data => res.json(data));
 });
 
-router.post('/create', (req,res) => {
-    const user = new User(req.body);
-
-    user.save().then(data => res.status(201).send(data))
-    .catch(error => {
-        if(error.name === "ValidationError"){
-            res.status(400).json(error.errors);
-        } else {
-            res.sendStatus(500);
-        }
-    })
-});
-
 
 router.delete('/delete/:id', (req, res) => {
     var id = req.params.id;
