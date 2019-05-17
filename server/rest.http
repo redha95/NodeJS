@@ -1,0 +1,48 @@
+GET http://localhost:3000/user/show/5cc3129c20d526009142967d
+
+###
+
+POST http://localhost:3000/movies/create
+Content-Type: application/json
+
+{
+     "title": "test",
+    "createdAt": "2019-04-23T10:51:59.606Z",
+    "year": 1990,
+    "category": "SF"
+}
+
+###
+
+POST http://localhost:3000/user/create
+Content-Type: application/json
+
+{
+     "email": "redha955@hotmail.fr",
+    "password": "abcd"
+}
+
+###
+
+DELETE http://localhost:3000/user/delete/5cc2e5c5808ebd004c1f4db1
+
+###
+
+PATCH http://localhost:3000/user/edit/5cc3129c20d526009142967d
+Content-Type: application/json
+
+{
+     "email": "redha95@hotmail.fr",
+     "firstname":"Redha"
+}
+
+
+###
+
+POST http://localhost:3000/user/login
+Content-Type: application/json
+
+{
+     "username": "user",
+    "password": "password"
+}
