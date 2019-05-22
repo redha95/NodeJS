@@ -15,12 +15,12 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:3000/create
+POST http://localhost:3000/register
 Content-Type: application/json
 
 {
-     "email": "redha955@hotmail.fr",
-    "password": "abcd"
+     "email": "aaabbbb@hotmail.fr",
+    "password": "izi"
 }
 
 ###
