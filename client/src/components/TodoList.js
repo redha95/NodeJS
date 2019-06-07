@@ -11,26 +11,43 @@ class TodoList extends React.Component {
         ]
     }
 
-    handleNew = () => {
-        const todo = {text: "new todo"};
+    handleNew = (text) => {
+        const todo = {text};
 
         this.setState({
             todos: [...this.state.todos,todo]
         });
     }
+    handleCheck = (todo) => {
+        this.setState({
+        todos : this.state.todos.map(item => {
+            if(todo.text === item.text) {
+                item.checked = !item.checked;
+            }
+            return item;
+        })
+    });
+    }
 
-    render(){
+    handleDelete = (todo) => {
+        this.setState({
+        todos : this.state.todos.filter(item => {
+            return todo.text !== item.text;
+        })
+    });
+    }
 
+    render() {
 
         return <>
-        <TodoForm onSubmit={this.handleNew}/>
-         <ul>
-            {
-                this.state.todos.map((todo,index) => <TodoItem key={index} todo={todo}/>)
-            }
+        <TodoForm onSubmit={this.handleNew} />
+        <ul>
+        {
+            this.state.todos.map((todo,index) => <TodoItem key={index} todo={todo} onCheck={this.handleCheck} onDelete={this.handleDelete}/>)
+        }
         </ul>
         </>;
-    }
+    };
 }
 
 export default TodoList;
