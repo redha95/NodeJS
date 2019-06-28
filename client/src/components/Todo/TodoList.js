@@ -1,10 +1,9 @@
 import React from "react";
-import TodoItem from "./TodoItem";
-import TodoForm from "./TodoForm";
+import TodoItemContainer from "./TodoItemContainer";
+import TodoContext from "../../context/TodoContext";
 
-class TodoList extends React.Component {
-
-    state = {
+//class TodoList extends React.Component {
+    /*  state = {
         todos : [
             {text: "todo 1"},
             {text: "todo 2", checked: true}
@@ -35,19 +34,24 @@ class TodoList extends React.Component {
             return todo.text !== item.text;
         })
     });
+    }*/
+
+class TodoList extends React.Component {
+    static contextType = TodoContext;
+
+    componentDidMount(){
+        this.context.loadTodos();
     }
 
     render() {
-
-        return <>
-        <TodoForm onSubmit={this.handleNew} />
-        <ul>
+        return <ul>
         {
-            this.state.todos.map((todo,index) => <TodoItem key={index} todo={todo} onCheck={this.handleCheck} onDelete={this.handleDelete}/>)
+            this.context.todos.map((todo,index) => <TodoItemContainer key={index} todo={todo}></TodoItemContainer>)
+         
+       
         }
-        </ul>
-        </>;
-    };
+         </ul>;
+    }
 }
 
 export default TodoList;

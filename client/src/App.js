@@ -1,7 +1,9 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import TodoList from './components/TodoList';
+import TodoProvider from './context/TodoProvider';
+import TodoList from './components/Todo/TodoList';
+import TodoForm from './components/Todo/TodoForm';
 
 function App() {
   return (
@@ -20,7 +22,11 @@ function App() {
           Learn React
         </a>
       </header>
-      <TodoList/>
+     <TodoProvider>
+       <TodoForm></TodoForm>
+       <TodoList></TodoList>
+     </TodoProvider>
+      
     </div>
   );
 }

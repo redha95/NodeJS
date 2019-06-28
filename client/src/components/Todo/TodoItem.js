@@ -6,7 +6,7 @@ class TodoItem extends React.Component {
         return <li style={{
             opacity: this.props.todo.checked ? 0.5 : 1
         } } >{this.props.todo.text}
-        <TodoItemActions onComplete={() => this.props.onCheck(this.props.todo)} onDelete={() => this.props.onDelete(this.props.todo)}/></li>
+        <TodoItemActions todo={this.props.todo}/></li>
 
     };
 }

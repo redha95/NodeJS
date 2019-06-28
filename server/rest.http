@@ -1,5 +1,5 @@
 GET http://localhost:3000/movies
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdE5hbWUiOiJ1c2VyIiwiaWF0IjoxNTU4MTEwOTQzLCJleHAiOjE1NTgxMTQ1NDN9.AxyXzhKBZkbKthx7RLHax9BMZQhQPIviBrKJmugM0wg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdE5hbWUiOiJ1c2VyIiwiaWF0IjoxNTYxNTM1NzYyLCJleHAiOjE1NjE1MzkzNjJ9.2LzcVs5-ZZxA3rREIMF-L6Ev0D8-VGzjhplyrrcEUiY
 
 ###
 

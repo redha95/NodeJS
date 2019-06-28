@@ -6,9 +6,13 @@ const UserRouter = require("./routes/user");
 const SecurityRouter = require("./routes/security");
 const bodyparser = require("body-parser");
 const verifyToken = require('./middlewares/security');
+const cors = require('cors');
 
 const app = express();
+app.use(cors());
 app.use(bodyparser.json());
+
+
 
 app.use('/',SecurityRouter);
 app.use(verifyToken);

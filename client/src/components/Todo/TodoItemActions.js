@@ -1,13 +1,17 @@
 import React from 'react'
+import TodoContext from '../../context/TodoContext';
 
 class TodoItemActions extends React.Component {
+
+    static contextType = TodoContext;
+    
     render(){
 
-        const {onComplete,onDelete} = this.props;
+
+       const {todo} = this.props;
 
         return <>
-            <a onClick={onComplete}>Set complete</a>
-            <a onClick={onDelete}>Delete</a>
+            <button onClick={ () => this.context.deleteTodo(todo)}> Delete</button>
         </>;
     }
 }
