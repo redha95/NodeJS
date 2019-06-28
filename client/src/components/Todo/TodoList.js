@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useContext,useEffect,useRef} from "react";
 import TodoItemContainer from "./TodoItemContainer";
 import TodoContext from "../../context/TodoContext";
 
@@ -36,22 +36,29 @@ import TodoContext from "../../context/TodoContext";
     });
     }*/
 
-class TodoList extends React.Component {
-    static contextType = TodoContext;
+const TodoList = () => {
+    const context = useContext(TodoContext);
+    const ref = useRef();
 
-    componentDidMount(){
-        this.context.loadTodos();
-    }
 
-    render() {
+    useEffect(() => {
+        context.loadTodos();
+        ref.current = true;
+    },[]);
+
+    useEffect(() => {
+       if(ref.current){
+           //
+       }
+    });
+
         return <ul>
         {
-            this.context.todos.map((todo,index) => <TodoItemContainer key={index} todo={todo}></TodoItemContainer>)
+            context.todos.map((todo,index) => <TodoItemContainer key={index} todo={todo}></TodoItemContainer>)
          
        
         }
          </ul>;
-    }
 }
 
 export default TodoList;
